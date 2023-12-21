@@ -23,7 +23,7 @@ if r.status_code == 200:
         f.write(r.content)
 
 # Unzip
-with zipfile.ZipFile(glovezip, 'r') as zip_ref:
+with zipfile.ZipFile(glove_zip, 'r') as zip_ref:
     zip_ref.extractall()
 with zipfile.ZipFile(match8zip, 'r') as zip_ref:
     zip_ref.extractall()
