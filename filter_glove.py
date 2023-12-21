@@ -1,3 +1,5 @@
+# Filters GloVe vectors to only save the top ~100k words, taken from Keith Vertanen's match8 word list
+
 from tqdm import tqdm
 
 filtered_lines = []
