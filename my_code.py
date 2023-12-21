@@ -1,29 +1,3 @@
-# Filtering the vectors, only using top ~100k words from match8 list. Made the filtered GloVe vectors file
-"""
-filtered_lines = []
-acceptable_words = []
-match8file = 'wlist_match8.txt'
-glove_file = 'glove.42B.300d.txt'
-
-for word in open(match8file):
-    acceptable_words.append(word[:-1])
-
-for i, line in enumerate(open(glove_file)):
-    row = line.split()
-    if row[0] in acceptable_words:
-        filtered_lines.append(line)
-    print(i, end='\r')
-
-print('length: ', len(filtered_lines))
-
-new_glove_file = 'glove.42B.300d.filtered.txt'
-
-with open(new_glove_file, 'w') as f:
-    f.write("".join(filtered_lines))
-
-# print(acceptable_words[:10])
-"""
-
 print('Importing...')
 from embeddings import Embeddings
 import board_gen
