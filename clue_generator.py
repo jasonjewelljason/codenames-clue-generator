@@ -1,9 +1,8 @@
-print('Importing...')
 from embeddings import Embeddings
 import board_gen
 from nltk.stem import WordNetLemmatizer
-from colorama import Fore, Back, Style
-print('Imports complete!')
+from colorama import Fore, Style
+from tqdm import tqdm
 
 # Making list of functor words (bad for clues)
 with open("functors.txt") as f:
@@ -56,9 +55,8 @@ def is_board_valid(embeddings, board):
     
     return True
 
-def is_clue_valid(clue, board):
+def is_clue_valid(clue, board) -> bool:
     # Checks to see if a clue is valid
-    # Returns bool
     lemmatizer = WordNetLemmatizer()
     clue_lemma = lemmatizer.lemmatize(clue)
 
@@ -126,14 +124,9 @@ def score_clue(embeddings, board, clue, team, method=1):
 def generate_clue(embeddings, board, team, method=1, n=1):
     # For a board and team, scores all possible clues and returns the top clue
     clues = []
-    counter = 1
-    print('Words checked (out of 108947):')
-    for word in embeddings.embeddings.keys():
+    for word in tqdm(embeddings.embeddings.keys(), total=108947, desc='Finding best clue...'):
         score = score_clue(embeddings, board, word, team, method)
         clues.append((word, score))
-        print(counter, end='\r')
-        counter += 1
-    print('Done!     ')
     return top_n([x for x in clues if is_clue_valid(x[0], board)], n)
 
 def get_clue_number(embeddings, board, clue, team):
