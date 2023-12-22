@@ -1,0 +1,4 @@
+nltk==3.8.1
+colorama==0.4.6
+tqdm==4.61.2
+numpy==1.22.3
