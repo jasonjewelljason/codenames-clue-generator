@@ -23,7 +23,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 * Functor word list by James O'Shea: https://semanticsimilarity.wordpress.com/function-word-lists/
 
 ### Paper
-You can find the paper I wrote about this project [here](link).
+You can find the paper I wrote about this project [here](paper.pdf).
 
 ### Contact
 Feel free to reach out with any questions or comments!
